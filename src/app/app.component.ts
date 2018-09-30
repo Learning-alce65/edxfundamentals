@@ -1,28 +1,26 @@
 import { Component, OnInit } from '@angular/core';
-import { GitSearchService } from './services/git-search.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  template : `
+    <header><h1>{{title}}</h1></header>
+    <section><app-git-search></app-git-search></section>`,
+  styleUrls: ['./app.component.css'],
+  styles: [
+    'header { background-color: brown; padding: 2rem;}',
+    'h1 { color: bisque}',
+    'section { text-align:center}'
+  ]
 })
 export class AppComponent implements OnInit {
 
   title: string ;
-  query: string;
-  constructor (private gitSearchService: GitSearchService) {
+  constructor () {
   }
 
   ngOnInit () {
     this.title = 'GitHub Browser';
-    this.query = 'Angular';
-    // this.query = '&&&&&&'; // para generar un error
-    this.gitSearchService.gitSearch(this.query)
-    .then( (response) => {
-      console.log('Total Libraries Found: ', response.total_count);
-    }, (error) => {
-      console.log('Error: ', error.statusText);
-    });
   }
 
 }
