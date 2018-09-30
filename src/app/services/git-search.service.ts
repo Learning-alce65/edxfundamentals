@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
 
 @Injectable()
 export class GitSearchService {
-  url: string:
+  url: string;
   cachedValues: Array<{
     [query: string]: GitSearch}> ;
 

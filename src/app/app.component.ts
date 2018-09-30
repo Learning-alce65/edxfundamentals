@@ -5,7 +5,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './app.component.html',
   template : `
     <header><h1>{{title}}</h1></header>
-    <section><app-git-search></app-git-search></section>`,
+    <section><router-outlet></router-outlet></section>`,
   styleUrls: ['./app.component.css'],
   styles: [
     'header { background-color: brown; padding: 2rem;}',

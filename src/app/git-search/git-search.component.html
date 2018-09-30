@@ -1,11 +1,10 @@
 <div class="search">
+  <h2>{{ title}} - {{displayQuery}}</h2>
   <input name="query" placeholder="Enter Search Here" [(ngModel)]="searchQuery" />
   <button (click)="gitSearch()">Submit</button>
 </div>
-
-
 <div *ngIf="searchResults?.total_count; else elseBlock">
-  <h3 class="total">Total Results: {{searchResults.total_count}}</h3>
+  <h3 class="total">Total Results: {{searchResults.total_count | number:'1.0-0':'es'}}</h3>
   <ul class="list">
     <li class="list_item" [class.silver] = "i % 2 "
       *ngFor="let result of searchResults.items; let i = index" >
